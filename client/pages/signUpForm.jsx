@@ -30,22 +30,35 @@
 // export default SignUpForm;
 import React from 'react'
 import { Field, reduxForm, formReducer } from 'redux-form'
+window.onmousedown = function (e) {
+  var el = e.target;
+  if (el.tagName.toLowerCase() == 'option' && el.parentNode.hasAttribute('multiple')) {
+    e.preventDefault();
 
+    // toggle selection
+    if (el.hasAttribute('selected')) el.removeAttribute('selected');
+    else el.setAttribute('selected', '');
+
+    // hack to correct buggy behavior
+    var select = el.parentNode.cloneNode(true);
+    el.parentNode.parentNode.replaceChild(select, el.parentNode);
+  }
+}
 
 const SimpleForm = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>First Name</label>
+        <label>Name</label>
         <div>
-          <Field name="firstName" component="input" type="text" placeholder="First Name"/>
+          <Field name="Name" component="input" type="text" placeholder="Name"/>
         </div>
       </div>
       <div>
-        <label>Last Name</label>
+        <label>Age</label>
         <div>
-          <Field name="lastName" component="input" type="text" placeholder="Last Name"/>
+          <Field name="age" component="input" type="text" placeholder="Age"/>
         </div>
       </div>
       <div>
@@ -55,34 +68,27 @@ const SimpleForm = (props) => {
         </div>
       </div>
       <div>
-        <label>Sex</label>
+        <label>Year</label>
         <div>
-          <label><Field name="sex" component="input" type="radio" value="male"/> Male</label>
-          <label><Field name="sex" component="input" type="radio" value="female"/> Female</label>
-        </div>
-      </div>
-      <div>
-        <label>Favorite Color</label>
-        <div>
-          <Field name="favoriteColor" component="select">
+          <Field name="year" component="select">
             <option></option>
-            <option value="ff0000">Red</option>
-            <option value="00ff00">Green</option>
-            <option value="0000ff">Blue</option>
+            <option value="12">Year 12</option>
+            <option value="13">Year 13</option>
+            <option value="14">Year 14</option>
           </Field>
         </div>
       </div>
       <div>
-        <label htmlFor="employed">Employed</label>
-        <div>
-          <Field name="employed" id="employed" component="input" type="checkbox"/>
-        </div>
-      </div>
-      <div>
-        <label>Notes</label>
-        <div>
-          <Field name="notes" component="textarea"/>
-        </div>
+        <label>Courses</label>
+        <Field name="Courses" component="select">
+          <select name="sites-list" size="6" multiple>
+            <option value="Science">Science</option>
+            <option value="Maths">Maths</option>
+            <option value="Computing">Computing</option>
+            <option value="English">English</option>
+            <option value="IT">IT</option>
+          </select>
+        </Field>
       </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>Submit</button>

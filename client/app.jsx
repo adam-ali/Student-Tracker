@@ -7,7 +7,7 @@ import Index from './pages/index.jsx'
 import SignIn from './pages/signIn.jsx'
 import SignUp from './pages/signUp.jsx'
 import ReactDOM from 'react-dom';
-import main from './reducers/reducer';
+import main from './reducer';
 const reducers = {
   main,
   form: formReducer

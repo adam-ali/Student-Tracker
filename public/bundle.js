@@ -74,7 +74,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reducer = __webpack_require__(475);
+	var _reducer = __webpack_require__(472);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
@@ -11246,12 +11246,7 @@
 	        _react2.default.createElement(
 	          'h1',
 	          null,
-	          'sign In page'
-	        ),
-	        _react2.default.createElement(
-	          'h1',
-	          { className: 'title' },
-	          'A Student tracking application'
+	          'Sign In'
 	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
@@ -11289,10 +11284,10 @@
 	  displayName: 'SignUp',
 	  handleSubmit: function handleSubmit(values) {
 	    // Do something with the form values
+
 	    console.log(values);
 	  },
 	  render: function render() {
-	    console.log(this.props.store);
 	    return _react2.default.createElement(
 	      'div',
 	      null,
@@ -11302,12 +11297,7 @@
 	        _react2.default.createElement(
 	          'h1',
 	          null,
-	          'sign up page'
-	        ),
-	        _react2.default.createElement(
-	          'h1',
-	          { className: 'title' },
-	          'A Student tracking application'
+	          'Sign up'
 	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
@@ -21702,6 +21692,20 @@
 	// })(SignUpForm);
 	//
 	// export default SignUpForm;
+	window.onmousedown = function (e) {
+	  var el = e.target;
+	  if (el.tagName.toLowerCase() == 'option' && el.parentNode.hasAttribute('multiple')) {
+	    e.preventDefault();
+
+	    // toggle selection
+	    if (el.hasAttribute('selected')) el.removeAttribute('selected');else el.setAttribute('selected', '');
+
+	    // hack to correct buggy behavior
+	    var select = el.parentNode.cloneNode(true);
+	    el.parentNode.parentNode.replaceChild(select, el.parentNode);
+	  }
+	};
+
 	var SimpleForm = function SimpleForm(props) {
 	  var handleSubmit = props.handleSubmit,
 	      pristine = props.pristine,
@@ -21717,12 +21721,12 @@
 	      _react2.default.createElement(
 	        'label',
 	        null,
-	        'First Name'
+	        'Name'
 	      ),
 	      _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_reduxForm.Field, { name: 'firstName', component: 'input', type: 'text', placeholder: 'First Name' })
+	        _react2.default.createElement(_reduxForm.Field, { name: 'Name', component: 'input', type: 'text', placeholder: 'Name' })
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -21731,12 +21735,12 @@
 	      _react2.default.createElement(
 	        'label',
 	        null,
-	        'Last Name'
+	        'Age'
 	      ),
 	      _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_reduxForm.Field, { name: 'lastName', component: 'input', type: 'text', placeholder: 'Last Name' })
+	        _react2.default.createElement(_reduxForm.Field, { name: 'age', component: 'input', type: 'text', placeholder: 'Age' })
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -21759,54 +21763,29 @@
 	      _react2.default.createElement(
 	        'label',
 	        null,
-	        'Sex'
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'label',
-	          null,
-	          _react2.default.createElement(_reduxForm.Field, { name: 'sex', component: 'input', type: 'radio', value: 'male' }),
-	          ' Male'
-	        ),
-	        _react2.default.createElement(
-	          'label',
-	          null,
-	          _react2.default.createElement(_reduxForm.Field, { name: 'sex', component: 'input', type: 'radio', value: 'female' }),
-	          ' Female'
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'label',
-	        null,
-	        'Favorite Color'
+	        'Year'
 	      ),
 	      _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
 	          _reduxForm.Field,
-	          { name: 'favoriteColor', component: 'select' },
+	          { name: 'year', component: 'select' },
 	          _react2.default.createElement('option', null),
 	          _react2.default.createElement(
 	            'option',
-	            { value: 'ff0000' },
-	            'Red'
+	            { value: '12' },
+	            'Year 12'
 	          ),
 	          _react2.default.createElement(
 	            'option',
-	            { value: '00ff00' },
-	            'Green'
+	            { value: '13' },
+	            'Year 13'
 	          ),
 	          _react2.default.createElement(
 	            'option',
-	            { value: '0000ff' },
-	            'Blue'
+	            { value: '14' },
+	            'Year 14'
 	          )
 	        )
 	      )
@@ -21816,27 +21795,41 @@
 	      null,
 	      _react2.default.createElement(
 	        'label',
-	        { htmlFor: 'employed' },
-	        'Employed'
+	        null,
+	        'Courses'
 	      ),
 	      _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(_reduxForm.Field, { name: 'employed', id: 'employed', component: 'input', type: 'checkbox' })
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'label',
-	        null,
-	        'Notes'
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(_reduxForm.Field, { name: 'notes', component: 'textarea' })
+	        _reduxForm.Field,
+	        { name: 'Courses', component: 'select' },
+	        _react2.default.createElement(
+	          'select',
+	          { name: 'sites-list', size: '6', multiple: true },
+	          _react2.default.createElement(
+	            'option',
+	            { value: 'Science' },
+	            'Science'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            { value: 'Maths' },
+	            'Maths'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            { value: 'Computing' },
+	            'Computing'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            { value: 'English' },
+	            'English'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            { value: 'IT' },
+	            'IT'
+	          )
+	        )
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -39222,7 +39215,51 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 472 */,
+/* 472 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.initialState = undefined;
+	exports.default = reducer;
+
+	var _actionTypes = __webpack_require__(473);
+
+	var types = _interopRequireWildcard(_actionTypes);
+
+	var _lodash = __webpack_require__(474);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	// import * as calculate from './calculationFuctions';
+	var initialState = exports.initialState = {
+	  teachers: [],
+	  students: []
+	};
+	function reducer() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+	  var action = arguments[1];
+
+
+	  var newState = _lodash2.default.cloneDeep(state);
+	  switch (action.type) {
+	    case types.ADD_PRODUCT:
+	      {
+	        return newState;
+	      }
+	    default:
+	      return state;
+	  }
+	}
+
+/***/ },
 /* 473 */
 /***/ function(module, exports) {
 
@@ -56304,61 +56341,6 @@
 	}.call(this));
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(57)(module)))
-
-/***/ },
-/* 475 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.initialState = undefined;
-	exports.default = reducer;
-
-	var _actionTypes = __webpack_require__(473);
-
-	var types = _interopRequireWildcard(_actionTypes);
-
-	var _lodash = __webpack_require__(474);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	// import * as calculate from './calculationFuctions';
-	// import { createStore, combineReducers } from 'redux'
-	// import { reducer as formReducer } from 'redux-form'
-	//
-	// const reducers = {
-	//   // ... your other reducers here ...
-	//   form: formReducer     // <---- Mounted at 'form'
-	// };
-	// const reducer = combineReducers(reducers);
-	// const store = createStore(reducer);
-
-	var initialState = exports.initialState = {
-	  teachers: [],
-	  students: []
-	};
-	function reducer() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	  var action = arguments[1];
-
-
-	  var newState = _lodash2.default.cloneDeep(state);
-	  switch (action.type) {
-	    case types.ADD_PRODUCT:
-	      {
-	        return newState;
-	      }
-	    default:
-	      return state;
-	  }
-	}
 
 /***/ }
 /******/ ]);

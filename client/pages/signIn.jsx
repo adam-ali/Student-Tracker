@@ -7,11 +7,9 @@ var SignIn = React.createClass({
       <div>
         <div className="container has-text-centered">
           <h1>
-            sign In page
+            Sign In
           </h1>
-          <h1 className="title">
-            A Student tracking application
-          </h1>
+
           <Link to="/"> home </Link>
         </div>
       </div>
