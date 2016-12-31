@@ -1,9 +1,9 @@
 var express = require('express');
 var apiRouter = express.Router();
 var StudentsRouter = require('./api/studentsRouter');
-// var floorsRouter = require('./api/floorsRouter');
-//
-apiRouter.use('/students',StudentsRouter);
-// apiRouter.use('/bookings',bookingsRouter  );
+var TeachersRouter = require('./api/teachersRouter');
 
-module.exports=apiRouter;
+apiRouter.use('/students', StudentsRouter);
+apiRouter.use('/teachers', TeachersRouter);
+
+module.exports = apiRouter;

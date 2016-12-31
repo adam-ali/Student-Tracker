@@ -9,6 +9,14 @@ var TeacherTracker = new Schema({
   meetings: Array
 });
 
-module.exports = mongoose.model('Teacher', TeacherTracker);
+module.exports = mongoose.model('teachers', TeacherTracker);
 
 
+/*
+
+ name: "mr.Smith",
+ email: "smith@college.com",
+ courses: ['science', 'maths'],
+ notifications: [],
+ meetings: []
+ */

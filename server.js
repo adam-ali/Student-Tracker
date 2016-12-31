@@ -28,6 +28,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/api', apiRouter);
 app.use('/', appRouter);
 
-app.listen(3000, function () {
-    console.log('connected to port 3000');
+app.listen(3002, function () {
+    console.log('connected to port 3002');
 });
