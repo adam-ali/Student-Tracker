@@ -7,10 +7,10 @@ var Index = React.createClass({
     return (
       <div>
           <div className="container has-text-centered">
-            <h1>
+            <h1 className="title">
               Home page
             </h1>
-            <h1 className="title">
+            <h1 className="subtitle">
                A Student tracking application
             </h1>
             <Link to="/signin"> sign in </Link>

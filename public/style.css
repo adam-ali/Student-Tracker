@@ -1,0 +1,7 @@
+a:hover {
+    text-decoration: none;
+}
+.form-buttons{
+    display: inline-flex;
+    padding-top: 30px;
+}

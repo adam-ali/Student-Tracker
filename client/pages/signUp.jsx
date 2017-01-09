@@ -13,9 +13,7 @@ var SignUp = React.createClass({
     return (
       <div>
         <div className="container has-text-centered">
-          <h1>
-            Sign up
-          </h1>
+          <h1 className="title ">Sign up</h1>
           <Link to="/"> home </Link>
           <SignUpForm onSubmit={this.handleSubmit} />
 
