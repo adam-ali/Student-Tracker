@@ -1,33 +1,3 @@
-// import React, { Component } from 'react';
-// import { Field, reduxForm } from 'redux-form';
-//
-// class SignUpForm extends Component {
-//   render() {
-//     const { handleSubmit } = this.props;
-//     return (
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <label htmlFor="firstName">First Name</label>
-//           <Field name="firstName" component="input" type="text"/>
-//         </div>
-//         <div>
-//           <label htmlFor="lastName">Last Name</label>
-//           <Field name="lastName" component="input" type="text"/>
-//         </div>
-//         <div>
-//           <label htmlFor="email">Email</label>
-//           <Field name="email" component="input" type="email"/>
-//         </div>
-//         <button type="submit">Submit</button>
-//       </form>
-//     );
-//   }
-// }
-// SignUpForm = reduxForm({
-//   form: 'contact' // a unique name for this form
-// })(SignUpForm);
-//
-// export default SignUpForm;
 import React from 'react'
 import { Field, reduxForm, formReducer } from 'redux-form';
 import Select from 'react-select';
@@ -42,7 +12,6 @@ var options = [
 function logChange(val) {
   console.log("Selected: " + val);
 }
-
 window.onmousedown = function (e) {
   var el = e.target;
   if (el.tagName.toLowerCase() == 'option' && el.parentNode.hasAttribute('multiple')) {
@@ -58,27 +27,9 @@ window.onmousedown = function (e) {
   }
 }
 
-function checkPassword(form)
-{
-  if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
-    if(form.pwd1.value.length < 3) {
-      alert("Error: Password must contain at least three characters!");
-      form.pwd1.focus();
-      return false;
-    }
-  } else {
-    alert("Error: Please check that you've entered and confirmed your password!");
-    form.pwd1.focus();
-    return false;
-  }
-
-  alert("You entered a valid password: " + form.pwd1.value);
-  return true;
-}
 function checkPasswordMatch() {
   var password = $("#password").val();
   var confirmPassword = $("#password2").val();
-
   if (password != confirmPassword)
     $("#help").html("Passwords dont Match");
   else
@@ -90,10 +41,11 @@ const SimpleForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="box">
+        <h1 className="title">Student</h1>
         <div>
           <label className="label">Name</label>
           <div>
-            <Field name="Name" component="input" type="text" placeholder="Name"/>
+            <Field name="name" component="input" type="text" placeholder="Name"/>
           </div>
         </div>
         <div>

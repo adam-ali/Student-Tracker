@@ -7,6 +7,7 @@ var StudentTracker = new Schema({
   email: String,
   courses: Array,
   year: String,
+  password: String,
   notifications: Array,
   tests: Array,
   meetings: Array,

@@ -10,7 +10,7 @@ TeacherRouter.route('/')
   })
   .post(function (req, res, next) {
     var newTeacher = req.body;
-    var newTeacherDoc = new Student(newTeacher);
+    var newTeacherDoc = new Teacher(newTeacher);
     newTeacherDoc.save(function(err, doc){
       if (err){
         next(new Error());

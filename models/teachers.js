@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var TeacherTracker = new Schema({
   name: String,
   email: String,
-  courses: Object,
+  courses: Array,
   notifications: Array,
   meetings: Array
 });
